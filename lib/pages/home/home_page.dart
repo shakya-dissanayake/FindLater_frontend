@@ -1,6 +1,6 @@
+import 'package:findlater/pages/home/saved_places_page.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/pages/home/saved_places_page.dart';
-import 'package:frontend/utils/colors.dart';
+import '../../utils/colors.dart';
 import '../components/text_semibold.dart';
 
 class HomePage extends StatefulWidget {

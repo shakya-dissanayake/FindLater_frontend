@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:frontend/utils/colors.dart';
+import '../../utils/colors.dart';
+
 
 class SavedPlaces extends StatefulWidget {
   const SavedPlaces({Key? key}) : super(key: key);
