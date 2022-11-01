@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    <string name="app_name">Find Later</string>
+    <string name="facebook_app_id">507345044602161</string>
+    <string name="fb_login_protocol_scheme">fb507345044602161</string>
+    <string name="facebook_client_token">f66370a7fbab8e778cfdffe078439068</string>
+</resources>
