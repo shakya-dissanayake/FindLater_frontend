@@ -1,14 +1,15 @@
+import 'package:findlater/pages/components/bottom_nav_bar.dart';
+import 'package:findlater/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-
+import 'package:gap/gap.dart';
 import '../../provider/internet_provider.dart';
 import '../../provider/sign_in_provider.dart';
 import '../../utils/config.dart';
 import '../../utils/next_screen.dart';
-import '../../utils/snack_bar.dart';
-import 'home_screen.dart';
+import '../components/snack_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -32,43 +33,50 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.background,
       body: SafeArea(
           child: Padding(
         padding:
-            const EdgeInsets.only(left: 40, right: 40, top: 90, bottom: 30),
+            const EdgeInsets.only(left: 40, right: 40, top: 45, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
-              flex: 2,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Image(
-                    image: AssetImage(Config.appIcon),
-                    height: 80,
-                    width: 80,
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text("Welcome to FlutterFirebase",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w500)),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Learn Authentication with Provider",
-                    style: TextStyle(fontSize: 15, color: Colors.grey[600]),
-                  )
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image(
+                  image: const AssetImage(Config.appIcon),
+                  height: MediaQuery.of(context).size.width * 0.15,
+                  width: MediaQuery.of(context).size.width * 0.15,
+                  fit: BoxFit.cover,
+                ),
+                const Gap(20),
+                const Text("Welcome to Find Later",
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: AppColors.primaryTextColor,
+                        fontWeight: FontWeight.w500)),
+                const Gap(5),
+                const Text(
+                  "You won't get lost again!",
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: AppColors.secondaryTextColor,
+                      fontWeight: FontWeight.w500),
+                )
+              ],
             ),
-
-            // roundedbutton
+            const Spacer(),
+            Column(children: [
+              Row(),
+              Image(
+                image: const AssetImage(Config.loginImage),
+                height: MediaQuery.of(context).size.height * 0.40,
+                fit: BoxFit.cover,
+              )
+            ]),
+            const Spacer(),
+            // rounded button
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -84,10 +92,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: 25,
                   color: Colors.red,
                   child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: const [
                       Icon(
                         FontAwesomeIcons.google,
-                        size: 20,
+                        size: 26,
                         color: Colors.white,
                       ),
                       SizedBox(
@@ -96,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text("Sign in with Google",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 15,
+                              fontSize: 16,
                               fontWeight: FontWeight.w500)),
                     ],
                   ),
@@ -116,10 +125,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: 25,
                   color: Colors.blue,
                   child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: const [
                       Icon(
                         FontAwesomeIcons.facebook,
-                        size: 20,
+                        size: 28,
                         color: Colors.white,
                       ),
                       SizedBox(
@@ -128,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text("Sign in with Facebook",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 15,
+                              fontSize: 16,
                               fontWeight: FontWeight.w500)),
                     ],
                   ),
@@ -151,12 +161,12 @@ class _LoginScreenState extends State<LoginScreen> {
     await ip.checkInternetConnection();
 
     if (ip.hasInternet == false) {
-      openSnackbar(context, "Check your Internet connection", Colors.red);
+      openSnackBar(context, "Check your Internet connection");
       googleController.reset();
     } else {
       await sp.signInWithGoogle().then((value) {
         if (sp.hasError == true) {
-          openSnackbar(context, sp.errorCode.toString(), Colors.red);
+          openSnackBar(context, sp.errorCode.toString());
           googleController.reset();
         } else {
           // checking whether user exists or not
@@ -192,12 +202,12 @@ class _LoginScreenState extends State<LoginScreen> {
     await ip.checkInternetConnection();
 
     if (ip.hasInternet == false) {
-      openSnackbar(context, "Check your Internet connection", Colors.red);
+      openSnackBar(context, "Check your Internet connection");
       facebookController.reset();
     } else {
       await sp.signInWithFacebook().then((value) {
         if (sp.hasError == true) {
-          openSnackbar(context, sp.errorCode.toString(), Colors.red);
+          openSnackBar(context, sp.errorCode.toString());
           facebookController.reset();
         } else {
           // checking whether user exists or not
@@ -225,10 +235,10 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  // handle after signin
+  // handle after sign in
   handleAfterSignIn() {
     Future.delayed(const Duration(milliseconds: 1000)).then((value) {
-      nextScreenReplace(context, const HomeScreen());
+      nextScreenReplace(context, const BottomNavBar());
     });
   }
 }

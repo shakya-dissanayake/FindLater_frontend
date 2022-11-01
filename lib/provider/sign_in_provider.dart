@@ -156,7 +156,7 @@ class SignInProvider extends ChangeNotifier {
     }
   }
 
-  // ENTRY FOR CLOUDFIRESTORE
+  // ENTRY FOR CLOUD FIRESTORE
   Future getUserDataFromFirestore(uid) async {
     await FirebaseFirestore.instance
         .collection("users")
@@ -204,22 +204,20 @@ class SignInProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // checkUser exists or not in cloudfirestore
+  // checkUser exists or not in cloud firestore
   Future<bool> checkUserExists() async {
     DocumentSnapshot snap =
         await FirebaseFirestore.instance.collection('users').doc(_uid).get();
     if (snap.exists) {
-      print("EXISTING USER");
       return true;
     } else {
-      print("NEW USER");
       return false;
     }
   }
 
-  // signout
+  // sign out
   Future userSignOut() async {
-    await firebaseAuth.signOut;
+    firebaseAuth.signOut;
     await googleSignIn.signOut();
     await facebookAuth.logOut();
 

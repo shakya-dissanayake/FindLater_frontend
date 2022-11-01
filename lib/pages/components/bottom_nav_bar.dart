@@ -1,3 +1,4 @@
+import 'package:findlater/pages/auth/profile_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const Text("Share"),
     const Text("Search"),
     const HomePage(),
-    const Text("Profile"),
+    const ProfilePage(),
     const Text("Settings")
   ];
 
@@ -62,7 +63,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: const Icon(FluentSystemIcons.ic_fluent_home_regular),
               activeIcon: GestureDetector(
                   onTap: () {
-                    print("Hello");
+                    // ADD PLACE CODE GOES HERE
                   },
                   child: const Icon(
                       FluentSystemIcons.ic_fluent_add_circle_regular)),

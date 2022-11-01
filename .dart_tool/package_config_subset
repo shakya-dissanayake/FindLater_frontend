@@ -142,6 +142,14 @@ font_awesome_flutter
 2.12
 file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-10.2.1/
 file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-10.2.1/lib/
+gap
+2.12
+file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/gap-2.0.0/
+file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/gap-2.0.0/lib/
+get
+2.15
+file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/
+file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5/lib/
 google_sign_in
 2.14
 file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.4.2/
@@ -344,6 +352,6 @@ file:///C:/Flutter/packages/flutter_web_plugins/
 file:///C:/Flutter/packages/flutter_web_plugins/lib/
 findlater
 2.18
-file:///D:/FindLater/findlater/
-file:///D:/FindLater/findlater/lib/
+file:///C:/findlater/
+file:///C:/findlater/lib/
 2

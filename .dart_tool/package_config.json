@@ -236,6 +236,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "gap",
+      "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/gap-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "get",
+      "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/get-4.6.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "google_sign_in",
       "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.4.2",
       "packageUri": "lib/",
@@ -524,7 +536,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-11-01T05:08:28.485811Z",
+  "generated": "2022-11-01T09:29:29.400560Z",
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }
