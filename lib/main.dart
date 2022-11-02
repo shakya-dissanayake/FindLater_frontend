@@ -1,4 +1,5 @@
 import 'package:findlater/pages/auth/splash_screen.dart';
+import 'package:findlater/pages/auth/login_page.dart';
 import 'package:findlater/provider/internet_provider.dart';
 import 'package:findlater/provider/sign_in_provider.dart';
 import 'package:flutter/material.dart';
@@ -27,13 +28,13 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: GetMaterialApp(
-          title: 'Find Later',
-          theme: ThemeData(
-            fontFamily: 'ProximaNova',
-            primarySwatch: Colors.blue,
-          ),
-          debugShowCheckedModeBanner: false,
-          home: const SplashScreen(),
+            title: 'Find Later',
+            theme: ThemeData(
+              fontFamily: 'ProximaNova',
+              primarySwatch: Colors.blue,
+            ),
+            debugShowCheckedModeBanner: false,
+            home: const SplashScreen()
         ));
   }
 }
