@@ -15,28 +15,36 @@ class SignInProvider extends ChangeNotifier {
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
   bool _isSignedIn = false;
+
   bool get isSignedIn => _isSignedIn;
 
   //hasError, errorCode, provider,uid, email, name, imageUrl
   bool _hasError = false;
+
   bool get hasError => _hasError;
 
   String? _errorCode;
+
   String? get errorCode => _errorCode;
 
   String? _provider;
+
   String? get provider => _provider;
 
   String? _uid;
+
   String? get uid => _uid;
 
   String? _name;
+
   String? get name => _name;
 
   String? _email;
+
   String? get email => _email;
 
   String? _imageUrl;
+
   String? get imageUrl => _imageUrl;
 
   SignInProvider() {
@@ -62,7 +70,7 @@ class SignInProvider extends ChangeNotifier {
         await googleSignIn.signIn();
 
     if (googleSignInAccount != null) {
-      // executing our authentication
+      // executing authentication
       try {
         final GoogleSignInAuthentication googleSignInAuthentication =
             await googleSignInAccount.authentication;
@@ -79,7 +87,7 @@ class SignInProvider extends ChangeNotifier {
         _name = userDetails.displayName;
         _email = userDetails.email;
         _imageUrl = userDetails.photoURL;
-        _provider = "GOOGLE";
+        _provider = "Google";
         _uid = userDetails.uid;
         notifyListeners();
       } on FirebaseAuthException catch (e) {
@@ -128,7 +136,7 @@ class SignInProvider extends ChangeNotifier {
         _imageUrl = profile['picture']['data']['url'];
         _uid = profile['id'];
         _hasError = false;
-        _provider = "FACEBOOK";
+        _provider = "Facebook";
         notifyListeners();
       } on FirebaseAuthException catch (e) {
         switch (e.code) {
