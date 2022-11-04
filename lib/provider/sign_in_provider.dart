@@ -70,7 +70,7 @@ class SignInProvider extends ChangeNotifier {
         await googleSignIn.signIn();
 
     if (googleSignInAccount != null) {
-      // executing our authentication
+      // executing authentication
       try {
         final GoogleSignInAuthentication googleSignInAuthentication =
             await googleSignInAccount.authentication;
@@ -87,7 +87,7 @@ class SignInProvider extends ChangeNotifier {
         _name = userDetails.displayName;
         _email = userDetails.email;
         _imageUrl = userDetails.photoURL;
-        _provider = "GOOGLE";
+        _provider = "Google";
         _uid = userDetails.uid;
         notifyListeners();
       } on FirebaseAuthException catch (e) {
@@ -136,7 +136,7 @@ class SignInProvider extends ChangeNotifier {
         _imageUrl = profile['picture']['data']['url'];
         _uid = profile['id'];
         _hasError = false;
-        _provider = "FACEBOOK";
+        _provider = "Facebook";
         notifyListeners();
       } on FirebaseAuthException catch (e) {
         switch (e.code) {
