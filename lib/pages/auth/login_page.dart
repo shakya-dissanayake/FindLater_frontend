@@ -24,10 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
       RoundedLoadingButtonController();
   final RoundedLoadingButtonController facebookController =
       RoundedLoadingButtonController();
-  final RoundedLoadingButtonController twitterController =
-      RoundedLoadingButtonController();
-  final RoundedLoadingButtonController phoneController =
-      RoundedLoadingButtonController();
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +191,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // handling facebook auth
-  // handling google sign in
   Future handleFacebookAuth() async {
     final sp = context.read<SignInProvider>();
     final ip = context.read<InternetProvider>();
