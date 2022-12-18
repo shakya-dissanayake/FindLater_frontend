@@ -109,39 +109,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                // facebook login button
-                RoundedLoadingButton(
-                  onPressed: () {
-                    handleFacebookAuth();
-                  },
-                  controller: facebookController,
-                  successColor: Colors.blue,
-                  width: MediaQuery.of(context).size.width * 0.80,
-                  elevation: 0,
-                  borderRadius: 25,
-                  color: Colors.blue,
-                  child: Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: const [
-                      Icon(
-                        FontAwesomeIcons.facebook,
-                        size: 28,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text("Sign in with Facebook",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500)),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
               ],
             )
           ],
@@ -181,46 +148,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   .saveDataToSharedPreferences()
                   .then((value) => sp.setSignIn().then((value) {
                         googleController.success();
-                        handleAfterSignIn();
-                      })));
-            }
-          });
-        }
-      });
-    }
-  }
-
-  // handling facebook auth
-  Future handleFacebookAuth() async {
-    final sp = context.read<SignInProvider>();
-    final ip = context.read<InternetProvider>();
-    await ip.checkInternetConnection();
-
-    if (ip.hasInternet == false) {
-      openSnackBar(context, "Check your Internet connection");
-      facebookController.reset();
-    } else {
-      await sp.signInWithFacebook().then((value) {
-        if (sp.hasError == true) {
-          openSnackBar(context, sp.errorCode.toString());
-          facebookController.reset();
-        } else {
-          // checking whether user exists or not
-          sp.checkUserExists().then((value) async {
-            if (value == true) {
-              // user exists
-              await sp.getUserDataFromFirestore(sp.uid).then((value) => sp
-                  .saveDataToSharedPreferences()
-                  .then((value) => sp.setSignIn().then((value) {
-                        facebookController.success();
-                        handleAfterSignIn();
-                      })));
-            } else {
-              // user does not exist
-              sp.saveDataToFirestore().then((value) => sp
-                  .saveDataToSharedPreferences()
-                  .then((value) => sp.setSignIn().then((value) {
-                        facebookController.success();
                         handleAfterSignIn();
                       })));
             }
