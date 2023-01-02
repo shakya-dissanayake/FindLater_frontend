@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
 import '../components/text_semibold.dart';
 
+import 'favourite_places_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -11,6 +13,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,12 +39,8 @@ class _HomePageState extends State<HomePage> {
                       unselectedLabelColor: AppColors.iconDark,
                       indicatorColor: Colors.white,
                       tabs: [
-                        SemiBoldText(
-                            text: 'All Saved',
-                            size: 16),
-                        SemiBoldText(
-                            text: 'Favourites',
-                            size: 16)
+                        SemiBoldText(text: 'All Saved', size: 16),
+                        SemiBoldText(text: 'Favourites', size: 16)
                       ],
                     ),
                   ],
@@ -51,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                 children: const <Widget>[SavedPlaces()],
               ),
               Column(
-                children: const <Widget>[Text("Cart Page")],
+                children: const <Widget>[FavouritePlaces()],
               )
             ],
           ),
