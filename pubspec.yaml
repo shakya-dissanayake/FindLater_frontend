@@ -50,6 +50,8 @@ dependencies:
   font_awesome_flutter:
   get:
   gap:
+  geolocator: ^8.2.0
+  geocoding: ^2.0.4
 
 dependency_overrides:
   firebase_core_platform_interface: 4.5.1

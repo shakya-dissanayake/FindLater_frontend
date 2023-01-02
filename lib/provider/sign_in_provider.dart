@@ -26,10 +26,6 @@ class SignInProvider extends ChangeNotifier {
 
   String? get errorCode => _errorCode;
 
-  String? _token;
-
-  String? get token => _token;
-
   String? _provider;
 
   String? get provider => _provider;
@@ -86,14 +82,13 @@ class SignInProvider extends ChangeNotifier {
         final User userDetails =
             (await firebaseAuth.signInWithCredential(credential)).user!;
 
-        final token = await getToken(userDetails.displayName, userDetails.email!);
-
         // now save all values
         _name = userDetails.displayName;
         _email = userDetails.email;
         _imageUrl = userDetails.photoURL;
         _provider = "Google";
         _uid = userDetails.uid;
+        final token = getToken(_name, _email);
         notifyListeners();
       } on FirebaseAuthException catch (e) {
         switch (e.code) {
@@ -151,13 +146,11 @@ class SignInProvider extends ChangeNotifier {
 
   Future saveDataToSharedPreferences() async {
     final SharedPreferences s = await SharedPreferences.getInstance();
-    final token = await renewToken(_email!);
     await s.setString('name', _name!);
     await s.setString('email', _email!);
     await s.setString('uid', _uid!);
     await s.setString('image_url', _imageUrl!);
     await s.setString('provider', _provider!);
-    await s.setString('token', token!);
     notifyListeners();
   }
 
@@ -168,7 +161,6 @@ class SignInProvider extends ChangeNotifier {
     _imageUrl = s.getString('image_url');
     _uid = s.getString('uid');
     _provider = s.getString('provider');
-    _token = s.getString('token');
     notifyListeners();
   }
 
@@ -208,16 +200,6 @@ class SignInProvider extends ChangeNotifier {
     } catch (e) {
       print(e);
     }
-  }
-
-  Future<String?> renewToken(String? email) async {
-    try {
-      var response = await http
-          .post(Uri.parse('${Config.baseURL}/login'), body: {"email": email});
-      String token = jsonDecode(response.body)['data']['token'];
-      return token;
-    } catch (e) {
-      print(e);
-    }
+    return null;
   }
 }
