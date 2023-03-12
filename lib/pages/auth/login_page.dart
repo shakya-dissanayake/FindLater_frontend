@@ -22,8 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
   final RoundedLoadingButtonController googleController =
       RoundedLoadingButtonController();
-  final RoundedLoadingButtonController facebookController =
-      RoundedLoadingButtonController();
 
   @override
   Widget build(BuildContext context) {

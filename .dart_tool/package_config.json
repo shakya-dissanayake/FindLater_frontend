@@ -176,6 +176,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_highlight",
+      "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_highlight-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1",
       "packageUri": "lib/",
@@ -322,6 +328,12 @@
     {
       "name": "google_sign_in_web",
       "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "highlight",
+      "rootUri": "file:///C:/Flutter/.pub-cache/hosted/pub.dartlang.org/highlight-0.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -584,7 +596,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-01-02T06:49:47.236664Z",
+  "generated": "2023-03-12T16:20:54.300045Z",
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }
