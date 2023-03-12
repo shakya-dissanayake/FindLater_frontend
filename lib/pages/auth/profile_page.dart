@@ -2,6 +2,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import '../../provider/sign_in_provider.dart';
+import '../../utils/colors.dart';
 import '../../utils/next_screen.dart';
 import 'login_page.dart';
 
@@ -29,6 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
     // change read to watch!!!!
     final sp = context.watch<SignInProvider>();
     return Scaffold(
+      backgroundColor: AppColors.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -44,21 +46,21 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Text(
               "Welcome ${sp.name}",
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: AppColors.primaryTextColor),
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
               "${sp.email}",
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.primaryTextColor),
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
               "${sp.uid}",
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.primaryTextColor),
             ),
             const SizedBox(
               height: 10,
@@ -67,7 +69,9 @@ class _ProfilePageState extends State<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("PROVIDER:"),
+                const Text("PROVIDER:", style: TextStyle(
+                    color: AppColors.primaryTextColor
+                )),
                 const SizedBox(
                   width: 5,
                 ),

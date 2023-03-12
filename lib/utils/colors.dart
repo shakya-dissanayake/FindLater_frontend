@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class AppColors{
-  static const Color background = Color(0xFF191919);
+  static const Color background = Color(0xFF1e1e1e);
   static const Color placeBoxBackground = Color(0xFF373737);
   static const Color topicBoxBackground = Color(0xFF2d2d2d);
 

@@ -4,5 +4,5 @@ class Config {
   static const loginImage = "assets/images/loginPageImage.png";
 
   // API baseURL
-  static const baseURL = "https://2908-51-195-218-78.eu.ngrok.io/api";
+  static const baseURL = "https://405c-2402-d000-a500-5b64-ec78-493d-9d9-be6c.ap.ngrok.io/api";
 }
